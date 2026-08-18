@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>🎂 Birthday Surprise · Aleesha</title>
-    <!-- Font & basic styling -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>🎂 Birthday Verification · Aleesha</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -35,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* floating birthday elements */
         body::before {
             content: "🎈 🎉 🎊 🎂 🎁 🎈 🎉 🎊 🎂 🎁 🎈 🎉 🎊 🎂 🎁 🎈 🎉 🎊 🎂 🎁";
             position: absolute;
@@ -111,10 +107,9 @@
         }
 
         h1 {
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #3a1e2e;
-            letter-spacing: -0.3px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -126,7 +121,7 @@
             background: #fce1d4;
             padding: 0.15rem 1rem;
             border-radius: 60px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             line-height: 1.4;
             box-shadow: 0 2px 0 #dbb6a2;
         }
@@ -167,10 +162,10 @@
             box-shadow: 0 6px 12px rgba(158, 106, 82, 0.08), 0 0 0 2px #f5ded2;
         }
         .question-text {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: #2b1929;
-            line-height: 1.3;
+            line-height: 1.4;
             margin-bottom: 0.4rem;
             padding: 0 4px;
         }
@@ -326,6 +321,27 @@
             flex-direction: column;
             align-items: center;
         }
+        .text-input-area {
+            margin: 0.8rem 0;
+        }
+        .text-input-area textarea {
+            width: 100%;
+            max-width: 300px;
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            border: 2px solid #dcc2b3;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            resize: vertical;
+            min-height: 60px;
+            background: #fcf5f0;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .text-input-area textarea:focus {
+            border-color: #a77b68;
+            background: #fffbf9;
+        }
 
         /* ===== LOADING SCREEN ===== */
         #loadingScreen {
@@ -464,358 +480,431 @@
             box-shadow: 0 2px 0 #6a2a3e;
         }
 
-        @media (max-width: 480px) {
-            .card { padding: 1.2rem 0.8rem 1.8rem; border-radius: 36px 36px 28px 28px; }
-            .question-text { font-size: 1.25rem; }
-            .option-btn { font-size: 0.9rem; padding: 0.5rem 0.8rem; max-width: 155px; min-height: 44px; }
-            .action-btn { font-size: 1.1rem; padding: 0.7rem 1.2rem; min-height: 50px; }
-            body::before { font-size: 1.8rem; letter-spacing: 0.8rem; word-spacing: 1.2rem; }
-            body::after { font-size: 1.2rem; letter-spacing: 1.6rem; }
-            h1 { font-size: 1.6rem; }
-            h1 span { font-size: 1.3rem; }
-            .subhead { font-size: 0.9rem; padding: 0.2rem 1.2rem; }
-            .final-surprise h2 { font-size: 1.8rem; }
-            .gift-emoji-big { font-size: 3rem; }
-            .sticker { font-size: 2.8rem; }
+        /* ===== ACCESS GRANTED MESSAGE ===== */
+        .access-granted-msg {
+            background: linear-gradient(135deg, #fcefe8, #fde8dc);
+            border-radius: 20px;
+            padding: 1.2rem;
+            margin: 0.6rem 0 1rem;
+            border: 2px solid #f5d6c8;
+        }
+        .access-granted-msg .big-emoji {
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .access-granted-msg .msg-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3a2a32;
+            line-height: 1.6;
+        }
+        .access-granted-msg .msg-text .highlight {
+            color: #c45a7a;
         }
 
-        .option-btn, .action-btn, .reset-btn, .input-field, .memories-btn {
+        @media (max-width: 480px) {
+            .card { padding: 1.2rem 0.8rem 1.8rem; border-radius: 36px 36px 28px 28px; }
+            .question-text { font-size: 1.15rem; }
+            .option-btn { font-size: 0.85rem; padding: 0.5rem 0.8rem; max-width: 155px; min-height: 44px; }
+            .action-btn { font-size: 1rem; padding: 0.7rem 1.2rem; min-height: 50px; }
+            body::before { font-size: 1.8rem; letter-spacing: 0.8rem; word-spacing: 1.2rem; }
+            body::after { font-size: 1.2rem; letter-spacing: 1.6rem; }
+            h1 { font-size: 1.4rem; }
+            h1 span { font-size: 1.2rem; }
+            .subhead { font-size: 0.85rem; padding: 0.2rem 1.2rem; }
+            .final-surprise h2 { font-size: 1.6rem; }
+            .gift-emoji-big { font-size: 2.8rem; }
+            .sticker { font-size: 2.8rem; }
+            .access-granted-msg .msg-text { font-size: 1rem; }
+            .text-input-area textarea { max-width: 100%; font-size: 0.85rem; }
+        }
+
+        .option-btn, .action-btn, .reset-btn, .input-field, .memories-btn, .text-input-area textarea {
             touch-action: manipulation;
         }
     </style>
 </head>
 <body>
 
-<!-- ===== LOADING SCREEN ===== -->
-<div id="loadingScreen">
-    <div class="loading-emoji">🎂</div>
-    <div class="loader"></div>
-    <div class="loading-text">✨ Preparing your surprise...</div>
-</div>
-
-<!-- ===== STICKER BURST CONTAINER ===== -->
-<div id="stickerBurst"></div>
-
-<!-- ===== MAIN CARD ===== -->
-<div class="card" id="app">
-    <div id="headerArea">
-        <h1>
-            <span>🎂 🎉</span> Hey Birthday Girl!
-        </h1>
-        <div class="subhead" id="userDisplay">✨ Aleesha · ONLY MINE's(Bilal)</div>
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loadingScreen">
+        <div class="loading-emoji">🎂</div>
+        <div class="loader"></div>
+        <div class="loading-text">✨ Preparing your surprise...</div>
     </div>
 
-    <div class="step-indicator" id="stepIndicator">Final Round • 01</div>
+    <!-- ===== STICKER BURST CONTAINER ===== -->
+    <div id="stickerBurst"></div>
 
-    <div id="dynamicContent"></div>
+    <!-- ===== MAIN CARD ===== -->
+    <div class="card" id="app">
+        <div id="headerArea">
+            <h1>
+                <span>🔐</span> BIRTHDAY VERIFICATION
+            </h1>
+            <div class="subhead" id="userDisplay">✨ Aleesha · ONLY MINE's(Bilal)</div>
+        </div>
 
-    <div class="reset-area">
-        <button class="reset-btn" id="resetBtn">↻ restart journey</button>
+        <div class="step-indicator" id="stepIndicator">💗 FINAL ROUND • 01</div>
+
+        <div id="dynamicContent"></div>
+
+        <div class="reset-area">
+            <button class="reset-btn" id="resetBtn">↻ restart journey</button>
+        </div>
+        <div class="footnote">🎂 every birthday is a new beginning</div>
     </div>
-    <div class="footnote">🎂 every birthday is a new beginning</div>
-</div>
 
-<script>
-    (function() {
-        // ---------- state ----------
-        let state = {
-            name: 'Aleesha',
-            nickname: "ONLY MINE's(Bilal)",
-            month: '',
-            currentStep: 0,
-            answers: [],
-            accessGranted: false,
-            surpriseShown: false,
-        };
+    <script>
+        (function() {
+            // ---------- state ----------
+            let state = {
+                name: 'Aleesha',
+                nickname: "ONLY MINE's(Bilal)",
+                month: '',
+                currentStep: 0,
+                answers: [],
+                textAnswer: '',
+                accessGranted: false,
+                surpriseShown: false,
+            };
 
-        const questions = [
-            {
-                label: 'Final Round • 01',
-                emoji: '🌴',
-                text: `What's your perfect birthday vibe?`,
-                options: ['🎉 party & dance', '🌿 nature & calm', '🎨 creative & cozy', '🌟 adventure & sparkle']
-            },
-            {
-                label: 'Final Round • 02',
-                emoji: '🎂',
-                text: 'What makes a birthday memorable?',
-                options: ['❤️ loved ones', '🎁 surprises', '✨ magic moments', '🍰 delicious cake']
-            },
-            {
-                label: 'Final Round • 03',
-                emoji: '💖',
-                text: 'What does your heart choose?',
-                options: ['🌅 sunrise', '🌙 moonlit night', '🌊 ocean waves', '🌺 flowers & blooms']
-            },
-            {
-                label: 'Final Round • 04',
-                emoji: '🌈',
-                text: 'How are you feeling right now?',
-                options: ['😊 joyful', '🤗 excited', '😌 peaceful', '✨ curious']
-            },
-            {
-                label: 'Final Round • 05',
-                emoji: '🎈',
-                text: 'Are you ready for your surprise?',
-                options: ['✅ yes!', '🌟 absolutely!', '💫 bring it on', '🎉 let\'s go!']
-            },
-        ];
+            // ---------- CUSTOM QUESTIONS ----------
+            const questions = [
+                {
+                    label: '💗 FINAL ROUND • 01',
+                    emoji: '🌅',
+                    text: 'Tumhara aj ka din kaisa tha?',
+                    options: ['Acha', 'Bura', 'Bas theek', 'Bohat acha']
+                },
+                {
+                    label: '💗 FINAL ROUND • 02',
+                    emoji: '🎯',
+                    text: 'Tumhara aj ka plan kya hai?',
+                    options: ['Outing', 'Ghar mein bas qaid ho jana 😭', 'Family ke saath rehna', 'Kuch nahi']
+                },
+                {
+                    label: '💗 FINAL ROUND • 03',
+                    emoji: '💖',
+                    text: 'Kya tumhara dil aj mujhse baat karna pasand karega?',
+                    options: ['Han', 'Nahi', 'Bilkul bhi nahi', 'Socha bhi kaise 😂']
+                },
+                {
+                    label: '💗 FINAL ROUND • 04',
+                    emoji: '🤔',
+                    text: 'Link kholne ke baad mere bare mein kya khayal aya?',
+                    options: ['Pata nahi', 'Nahi janti', 'Bas theek laga', 'Khud likhna hai ✍️']
+                },
+                {
+                    label: '💗 FINAL ROUND • 05',
+                    emoji: '💭',
+                    text: 'Aaj ke liye tumhari kya feelings hain?',
+                    options: ['Sad 😔', 'Happy 😊', 'Kisi ka intezar 👀', 'Apni dili khushi ❤️']
+                },
+                {
+                    label: '💗 FINAL ROUND • 06',
+                    emoji: '🎀',
+                    text: 'Mera is tarah wish karna acha laga?',
+                    options: ['Han ❤️', 'Nahii', 'Bas theek laga', 'Fazool tha 😂']
+                }
+            ];
 
-        const dynamicEl = document.getElementById('dynamicContent');
-        const stepIndicator = document.getElementById('stepIndicator');
-        const userDisplay = document.getElementById('userDisplay');
-        const loadingScreen = document.getElementById('loadingScreen');
-        const stickerBurst = document.getElementById('stickerBurst');
+            const dynamicEl = document.getElementById('dynamicContent');
+            const stepIndicator = document.getElementById('stepIndicator');
+            const userDisplay = document.getElementById('userDisplay');
+            const loadingScreen = document.getElementById('loadingScreen');
+            const stickerBurst = document.getElementById('stickerBurst');
 
-        function updateUserDisplay() {
-            userDisplay.textContent = `✨ Aleesha · ONLY MINE's(Bilal)`;
-        }
-
-        // ===== STICKER BURST =====
-        function triggerStickerBurst() {
-            const stickers = ['🎈', '🎉', '🎊', '🎂', '🎁', '✨', '🌟', '💖', '🌸', '🌈', '🎀', '🧁', '🍰', '🥳'];
-            const container = stickerBurst;
-            container.innerHTML = '';
-
-            const numStickers = 28 + Math.floor(Math.random() * 15);
-            for (let i = 0; i < numStickers; i++) {
-                const sticker = document.createElement('div');
-                sticker.className = 'sticker';
-                sticker.textContent = stickers[Math.floor(Math.random() * stickers.length)];
-                sticker.style.left = Math.random() * 100 + '%';
-                sticker.style.top = Math.random() * 100 + '%';
-                sticker.style.fontSize = (2.2 + Math.random() * 2.8) + 'rem';
-                sticker.style.animationDuration = (4 + Math.random() * 5) + 's';
-                sticker.style.animationDelay = (Math.random() * 2.5) + 's';
-                const rotate = (Math.random() - 0.5) * 40;
-                sticker.style.transform = `rotate(${rotate}deg)`;
-                container.appendChild(sticker);
+            function updateUserDisplay() {
+                userDisplay.textContent = `✨ Aleesha · ONLY MINE's(Bilal)`;
             }
 
-            // Remove stickers after animation
-            setTimeout(() => {
+            // ===== STICKER BURST =====
+            function triggerStickerBurst() {
+                const stickers = ['🎈', '🎉', '🎊', '🎂', '🎁', '✨', '🌟', '💖', '🌸', '🌈', '🎀', '🧁', '🍰', '🥳', '💕', '🌹'];
+                const container = stickerBurst;
                 container.innerHTML = '';
-            }, 8000);
-        }
 
-        // ===== SHOW SURPRISE WITH LOADING =====
-        function showSurpriseWithLoading() {
-            if (state.surpriseShown) return;
-            state.surpriseShown = true;
-
-            // Show loading screen
-            loadingScreen.classList.remove('hidden');
-
-            // After 2.5 seconds, show stickers and final screen
-            setTimeout(() => {
-                // Hide loading
-                loadingScreen.classList.add('hidden');
-
-                // Trigger sticker burst
-                triggerStickerBurst();
-
-                // Show final surprise content
-                renderSurprise();
-
-            }, 2500);
-        }
-
-        // ===== RENDER SURPRISE =====
-        function renderSurprise() {
-            stepIndicator.textContent = '🎉 ACCESS GRANTED!';
-
-            let answerSummary = '';
-            if (state.answers.length > 0) {
-                const selectedTexts = state.answers.map((ansIdx, idx) => {
-                    if (idx < questions.length && ansIdx !== undefined) {
-                        return questions[idx].options[ansIdx] || '✨';
-                    }
-                    return '✨';
-                }).filter(t => t);
-                if (selectedTexts.length) {
-                    answerSummary = ` · ${selectedTexts.join(' · ')}`;
+                const numStickers = 30 + Math.floor(Math.random() * 20);
+                for (let i = 0; i < numStickers; i++) {
+                    const sticker = document.createElement('div');
+                    sticker.className = 'sticker';
+                    sticker.textContent = stickers[Math.floor(Math.random() * stickers.length)];
+                    sticker.style.left = Math.random() * 100 + '%';
+                    sticker.style.top = Math.random() * 100 + '%';
+                    sticker.style.fontSize = (2.0 + Math.random() * 3.0) + 'rem';
+                    sticker.style.animationDuration = (4 + Math.random() * 5) + 's';
+                    sticker.style.animationDelay = (Math.random() * 2.5) + 's';
+                    const rotate = (Math.random() - 0.5) * 40;
+                    sticker.style.transform = `rotate(${rotate}deg)`;
+                    container.appendChild(sticker);
                 }
+
+                setTimeout(() => {
+                    container.innerHTML = '';
+                }, 8000);
             }
 
-            const html = `
-                <div class="final-surprise">
-                    <div class="gift-emoji-big">🎁</div>
-                    <h2>🎂 Happy Birthday Aleesha! 🎂</h2>
-                    <p style="font-size:1.3rem;">${state.nickname} 🎉</p>
-                    <p style="font-size:1rem; background: #e9d5ca; padding:0.5rem; border-radius:60px; margin-top:0.5rem; word-break:break-word;">
-                        ${answerSummary || '🌟 your perfect birthday vibe'}
-                    </p>
-                    <div style="font-size:2.2rem; margin:0.4rem 0;">🎉🎂✨</div>
-                    <div style="background: #fff2ea; border-radius:30px; padding:0.6rem; border:1px solid #c6a392;">
-                        <span style="font-size:1.1rem;">💌 you are loved & celebrated!</span>
-                    </div>
-                    <div style="margin-top: 1rem; font-size:1.8rem;">🎈🎁🎊</div>
+            // ===== SHOW SURPRISE WITH LOADING =====
+            function showSurpriseWithLoading() {
+                if (state.surpriseShown) return;
+                state.surpriseShown = true;
 
-                    <!-- Memories Button -->
-                    <button class="memories-btn" id="memoriesBtn">📸 Our Memories</button>
-                </div>
-                <button class="action-btn" id="restartFromSurprise" style="background:#5f3f4a;">🔄 start over</button>
-            `;
-            dynamicEl.innerHTML = html;
+                loadingScreen.classList.remove('hidden');
 
-            document.getElementById('restartFromSurprise').addEventListener('click', function() {
-                resetAll();
-            });
-
-            document.getElementById('memoriesBtn').addEventListener('click', function() {
-                // Open memories page in new tab/window
-                window.open('memories.html', '_blank');
-            });
-        }
-
-        // ===== RENDER VERIFICATION =====
-        function renderVerificationForm() {
-            stepIndicator.textContent = '🔐 Verify yourself';
-            const html = `
-                <div class="question-box">
-                    <span class="question-emoji">🎂</span>
-                    <div class="question-text" style="font-size:1.3rem;">Tell us about you</div>
-                    <div class="row" style="gap:0.2rem;">
-                        <input class="input-field" id="inputName" type="text" placeholder="Your Name" value="${state.name || ''}" inputmode="text">
-                        <input class="input-field" id="inputNickname" type="text" placeholder="Your Nickname" value="${state.nickname || ''}" inputmode="text">
-                        <input class="input-field" id="inputMonth" type="text" placeholder="Birthday Month (e.g. July)" value="${state.month || ''}" inputmode="text">
-                    </div>
-                    <button class="action-btn" id="verifyBtn">🔓 verify & continue</button>
-                </div>
-            `;
-            dynamicEl.innerHTML = html;
-
-            const nameInp = document.getElementById('inputName');
-            const nickInp = document.getElementById('inputNickname');
-            const monthInp = document.getElementById('inputMonth');
-            const verifyBtn = document.getElementById('verifyBtn');
-
-            function attemptVerify() {
-                const name = nameInp.value.trim() || 'Aleesha';
-                const nickname = nickInp.value.trim() || "ONLY MINE's(Bilal)";
-                const month = monthInp.value.trim();
-                if (name && nickname && month) {
-                    state.name = name;
-                    state.nickname = nickname;
-                    state.month = month;
-                    updateUserDisplay();
-                    state.answers = [];
-                    state.currentStep = 0;
-                    state.accessGranted = false;
-                    state.surpriseShown = false;
-                    render();
-                } else {
-                    alert('Please fill in all fields: Name, Nickname, and Birthday Month ✨');
-                }
-            }
-
-            verifyBtn.addEventListener('click', attemptVerify);
-            [nameInp, nickInp, monthInp].forEach(inp => {
-                inp.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') attemptVerify();
-                });
-            });
-        }
-
-        // ===== RENDER QUESTION =====
-        function render() {
-            if (state.accessGranted) {
-                // If already granted, show surprise (but we use loading flow)
-                if (!state.surpriseShown) {
-                    showSurpriseWithLoading();
-                } else {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    triggerStickerBurst();
                     renderSurprise();
-                }
-                return;
+                }, 2500);
             }
 
-            if (!state.name || !state.nickname || !state.month) {
-                renderVerificationForm();
-                return;
-            }
+            // ===== RENDER SURPRISE =====
+            function renderSurprise() {
+                stepIndicator.textContent = '🎉 ACCESS GRANTED!';
 
-            const step = state.currentStep;
-            if (step >= questions.length) {
-                grantAccess();
-                return;
-            }
-
-            const q = questions[step];
-            stepIndicator.textContent = q.label;
-
-            let html = `<div class="question-box">`;
-            html += `<span class="question-emoji">${q.emoji}</span>`;
-            html += `<div class="question-text">${q.text}</div>`;
-            html += `<div class="options-grid" id="optionsGrid">`;
-
-            const selectedIdx = state.answers[step] !== undefined ? state.answers[step] : -1;
-            q.options.forEach((opt, idx) => {
-                const selClass = (idx === selectedIdx) ? 'selected' : '';
-                html += `<button class="option-btn ${selClass}" data-opt-index="${idx}">${opt}</button>`;
-            });
-
-            html += `</div>`;
-            const isAnswered = state.answers[step] !== undefined;
-            html += `<button class="action-btn" id="nextStepBtn" ${!isAnswered ? 'disabled' : ''}>`;
-            if (step === questions.length - 1) {
-                html += `🎁 OPEN MY SURPRISE`;
-            } else {
-                html += `→ next question`;
-            }
-            html += `</button>`;
-            html += `</div>`;
-
-            dynamicEl.innerHTML = html;
-
-            document.querySelectorAll('.option-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const idx = parseInt(this.dataset.optIndex, 10);
-                    state.answers[step] = idx;
-                    render();
-                });
-            });
-
-            const nextBtn = document.getElementById('nextStepBtn');
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function() {
-                    const stepNow = state.currentStep;
-                    if (state.answers[stepNow] === undefined) return;
-
-                    if (stepNow === questions.length - 1) {
-                        grantAccess();
-                    } else {
-                        state.currentStep = stepNow + 1;
-                        render();
+                let answerSummary = '';
+                if (state.answers.length > 0) {
+                    const selectedTexts = state.answers.map((ansIdx, idx) => {
+                        if (idx < questions.length && ansIdx !== undefined) {
+                            return questions[idx].options[ansIdx] || '✨';
+                        }
+                        return '✨';
+                    }).filter(t => t);
+                    if (selectedTexts.length) {
+                        answerSummary = selectedTexts.join(' · ');
                     }
+                }
+
+                // Add text answer if provided
+                let textAnswerDisplay = '';
+                if (state.textAnswer && state.textAnswer.trim()) {
+                    textAnswerDisplay = `<div style="background: #f2ddd2; border-radius:16px; padding:0.6rem; margin:0.6rem 0; font-style:italic;">💬 "${state.textAnswer}"</div>`;
+                }
+
+                const html = `
+                    <div class="final-surprise">
+                        <div class="gift-emoji-big">🎁</div>
+                        <h2>🎂 Happy Birthday Aleesha! 🎂</h2>
+                        <p style="font-size:1.2rem;">${state.nickname} 🎉</p>
+
+                        <div class="access-granted-msg">
+                            <span class="big-emoji">🎉</span>
+                            <div class="msg-text">
+                                Verification complete...<br>
+                                <span class="highlight">Lekin asal surprise abhi baaki hai 👀</span>
+                            </div>
+                        </div>
+
+                        ${textAnswerDisplay}
+
+                        <p style="font-size:0.95rem; background: #e9d5ca; padding:0.5rem; border-radius:60px; margin-top:0.5rem; word-break:break-word;">
+                            ${answerSummary || '🌟 Your perfect birthday vibe'}
+                        </p>
+                        <div style="font-size:2.2rem; margin:0.4rem 0;">🎉🎂✨</div>
+                        <div style="background: #fff2ea; border-radius:30px; padding:0.6rem; border:1px solid #c6a392;">
+                            <span style="font-size:1.1rem;">💌 you are loved & celebrated!</span>
+                        </div>
+                        <div style="margin-top: 1rem; font-size:1.8rem;">🎈🎁🎊</div>
+
+                        <button class="memories-btn" id="memoriesBtn">📸 Our Memories</button>
+                    </div>
+                    <button class="action-btn" id="restartFromSurprise" style="background:#5f3f4a;">🔄 start over</button>
+                `;
+                dynamicEl.innerHTML = html;
+
+                document.getElementById('restartFromSurprise').addEventListener('click', function() {
+                    resetAll();
+                });
+
+                document.getElementById('memoriesBtn').addEventListener('click', function() {
+                    window.open('memories.html', '_blank');
                 });
             }
-        }
 
-        function grantAccess() {
-            state.accessGranted = true;
-            state.surpriseShown = false;
-            showSurpriseWithLoading();
-        }
+            // ===== RENDER VERIFICATION =====
+            function renderVerificationForm() {
+                stepIndicator.textContent = '🔐 BIRTHDAY VERIFICATION';
+                const html = `
+                    <div class="question-box">
+                        <span class="question-emoji">🎂</span>
+                        <div class="question-text" style="font-size:1.3rem;">Tell us about you</div>
+                        <div class="row" style="gap:0.2rem;">
+                            <input class="input-field" id="inputName" type="text" placeholder="Your Name" value="${state.name || ''}" inputmode="text">
+                            <input class="input-field" id="inputNickname" type="text" placeholder="Your Nickname" value="${state.nickname || ''}" inputmode="text">
+                            <input class="input-field" id="inputMonth" type="text" placeholder="Birthday Month" value="${state.month || ''}" inputmode="text">
+                        </div>
+                        <button class="action-btn" id="verifyBtn">🔓 verify & continue</button>
+                    </div>
+                `;
+                dynamicEl.innerHTML = html;
 
-        function resetAll() {
-            state.name = 'Aleesha';
-            state.nickname = "ONLY MINE's(Bilal)";
-            state.month = '';
-            state.currentStep = 0;
-            state.answers = [];
-            state.accessGranted = false;
-            state.surpriseShown = false;
-            updateUserDisplay();
-            stickerBurst.innerHTML = '';
-            loadingScreen.classList.add('hidden');
-            render();
-        }
+                const nameInp = document.getElementById('inputName');
+                const nickInp = document.getElementById('inputNickname');
+                const monthInp = document.getElementById('inputMonth');
+                const verifyBtn = document.getElementById('verifyBtn');
 
-        document.getElementById('resetBtn').addEventListener('click', resetAll);
+                function attemptVerify() {
+                    const name = nameInp.value.trim() || 'Aleesha';
+                    const nickname = nickInp.value.trim() || "ONLY MINE's(Bilal)";
+                    const month = monthInp.value.trim();
+                    if (name && nickname && month) {
+                        state.name = name;
+                        state.nickname = nickname;
+                        state.month = month;
+                        updateUserDisplay();
+                        state.answers = [];
+                        state.textAnswer = '';
+                        state.currentStep = 0;
+                        state.accessGranted = false;
+                        state.surpriseShown = false;
+                        render();
+                    } else {
+                        alert('Please fill in all fields: Name, Nickname, and Birthday Month ✨');
+                    }
+                }
 
-        // Initial render
-        resetAll();
-    })();
-</script>
+                verifyBtn.addEventListener('click', attemptVerify);
+                [nameInp, nickInp, monthInp].forEach(inp => {
+                    inp.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') attemptVerify();
+                    });
+                });
+            }
+
+            // ===== RENDER QUESTION =====
+            function render() {
+                if (state.accessGranted) {
+                    if (!state.surpriseShown) {
+                        showSurpriseWithLoading();
+                    } else {
+                        renderSurprise();
+                    }
+                    return;
+                }
+
+                if (!state.name || !state.nickname || !state.month) {
+                    renderVerificationForm();
+                    return;
+                }
+
+                const step = state.currentStep;
+                if (step >= questions.length) {
+                    grantAccess();
+                    return;
+                }
+
+                const q = questions[step];
+                stepIndicator.textContent = q.label;
+
+                let html = `<div class="question-box">`;
+                html += `<span class="question-emoji">${q.emoji}</span>`;
+                html += `<div class="question-text">${q.text}</div>`;
+                html += `<div class="options-grid" id="optionsGrid">`;
+
+                const selectedIdx = state.answers[step] !== undefined ? state.answers[step] : -1;
+                q.options.forEach((opt, idx) => {
+                    const selClass = (idx === selectedIdx) ? 'selected' : '';
+                    html += `<button class="option-btn ${selClass}" data-opt-index="${idx}">${opt}</button>`;
+                });
+
+                html += `</div>`;
+
+                // Special: If step 3 (index 3) and option 3 selected, show text input
+                if (step === 3 && state.answers[step] === 3) {
+                    html += `
+                        <div class="text-input-area">
+                            <textarea id="textAnswerInput" placeholder="Apna answer yahan likho..." rows="2">${state.textAnswer || ''}</textarea>
+                        </div>
+                    `;
+                }
+
+                const isAnswered = state.answers[step] !== undefined;
+                html += `<button class="action-btn" id="nextStepBtn" ${!isAnswered ? 'disabled' : ''}>`;
+                if (step === questions.length - 1) {
+                    html += `🎁 OPEN MY SURPRISE`;
+                } else {
+                    html += `→ next question`;
+                }
+                html += `</button>`;
+                html += `</div>`;
+
+                dynamicEl.innerHTML = html;
+
+                // Option click handlers
+                document.querySelectorAll('.option-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = parseInt(this.dataset.optIndex, 10);
+                        state.answers[step] = idx;
+                        // If not step 3, clear text answer
+                        if (step !== 3) {
+                            state.textAnswer = '';
+                        }
+                        render();
+                    });
+                });
+
+                // Text input handler for step 3
+                const textArea = document.getElementById('textAnswerInput');
+                if (textArea) {
+                    textArea.addEventListener('input', function() {
+                        state.textAnswer = this.value;
+                    });
+                }
+
+                // Next button handler
+                const nextBtn = document.getElementById('nextStepBtn');
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function() {
+                        const stepNow = state.currentStep;
+
+                        // If step 3 and option 3 selected, ensure text is filled
+                        if (stepNow === 3 && state.answers[stepNow] === 3) {
+                            const textInput = document.getElementById('textAnswerInput');
+                            if (textInput && !textInput.value.trim()) {
+                                alert('Please write your answer before continuing ✍️');
+                                return;
+                            }
+                            state.textAnswer = textInput ? textInput.value.trim() : '';
+                        }
+
+                        if (state.answers[stepNow] === undefined) return;
+
+                        if (stepNow === questions.length - 1) {
+                            grantAccess();
+                        } else {
+                            state.currentStep = stepNow + 1;
+                            render();
+                        }
+                    });
+                }
+            }
+
+            function grantAccess() {
+                state.accessGranted = true;
+                state.surpriseShown = false;
+                showSurpriseWithLoading();
+            }
+
+            function resetAll() {
+                state.name = 'Aleesha';
+                state.nickname = "ONLY MINE's(Bilal)";
+                state.month = '';
+                state.currentStep = 0;
+                state.answers = [];
+                state.textAnswer = '';
+                state.accessGranted = false;
+                state.surpriseShown = false;
+                updateUserDisplay();
+                stickerBurst.innerHTML = '';
+                loadingScreen.classList.add('hidden');
+                render();
+            }
+
+            document.getElementById('resetBtn').addEventListener('click', resetAll);
+            resetAll();
+        })();
+    </script>
 </body>
 </html>
