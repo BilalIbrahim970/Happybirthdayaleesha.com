@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>📸 Memories · Aleesha</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            overflow-x: hidden;
+            font-family: 'Quicksand', 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        /* ===== BIRTHDAY BACKGROUND ===== */
+        body {
+            background: radial-gradient(circle at 20% 30%, #fff0e6 0%, #fce2d4 25%, #fdd9c4 50%, #f5d0b8 75%, #fce6d8 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            position: relative;
+        }
+
+        /* Floating confetti & balloons */
+        body::before {
+            content: "🎈 🎉 🎊 🎂 🎁 🎈 🎉 🎊 🎂 🎁 🎈 🎉 🎊 🎂 🎁 🎈 🎉 🎊 🎂 🎁";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 2.2rem;
+            letter-spacing: 1.2rem;
+            word-spacing: 1.8rem;
+            opacity: 0.2;
+            pointer-events: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-4deg) scale(1.1);
+            z-index: 0;
+            color: #ff9a7a;
+            text-shadow: 0 0 12px #ffdbb5, 0 0 30px #ffe5b9;
+            line-height: 2.2;
+            white-space: pre-wrap;
+            font-weight: 400;
+            animation: floatDecor 30s infinite alternate ease-in-out;
+        }
+
+        body::after {
+            content: "✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+            letter-spacing: 2.4rem;
+            opacity: 0.15;
+            pointer-events: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            z-index: 0;
+            color: #ffdb9d;
+            transform: rotate(6deg) scale(1.2);
+            animation: sparkleDrift 22s infinite alternate;
+        }
+
+        @keyframes floatDecor {
+            0% {
+                transform: rotate(-4deg) scale(1) translateY(0);
+                opacity: 0.18;
+            }
+            100% {
+                transform: rotate(4deg) scale(1.12) translateY(-12px);
+                opacity: 0.3;
+            }
+        }
+        @keyframes sparkleDrift {
+            0% {
+                transform: rotate(6deg) scale(1.1) translateX(-6px);
+                opacity: 0.12;
+            }
+            100% {
+                transform: rotate(-4deg) scale(1.2) translateX(8px);
+                opacity: 0.2;
+            }
+        }
+
+        /* ===== GOOGLE-STYLE CARD ===== */
+        .google-card {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 12px 40px rgba(60, 30, 40, 0.18), 0 0 0 1px #f0d6c8 inset, 0 0 0 3px #fff5ef inset;
+            padding: 2rem 1.6rem 2.4rem;
+            position: relative;
+            z-index: 10;
+            border: 1px solid #f5e6dc;
+            transition: all 0.2s ease;
+            margin: 8px auto;
+            text-align: center;
+        }
+
+        /* ===== GOOGLE LOGO ===== */
+        .google-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 0.8rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+        .google-logo .g { color: #4285F4; }
+        .google-logo .o1 { color: #EA4335; }
+        .google-logo .o2 { color: #FBBC05; }
+        .google-logo .l { color: #34A853; }
+        .google-logo .e { color: #EA4335; }
+        .google-logo .s { color: #4285F4; }
+        .google-logo .dot { color: #FBBC05; font-size: 2rem; }
+
+        /* ===== DECORATIONS ===== */
+        .deco-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .deco-row span {
+            animation: floatDecorIcon 3s ease-in-out infinite alternate;
+        }
+        .deco-row span:nth-child(2) { animation-delay: 0.4s; }
+        .deco-row span:nth-child(3) { animation-delay: 0.8s; }
+        .deco-row span:nth-child(4) { animation-delay: 1.2s; }
+        .deco-row span:nth-child(5) { animation-delay: 0.6s; }
+        .deco-row span:nth-child(6) { animation-delay: 1.0s; }
+
+        @keyframes floatDecorIcon {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-8px) scale(1.1); }
+        }
+
+        /* ===== TITLE ===== */
+        .memories-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3a1e2e;
+            margin: 0.2rem 0 0.3rem;
+            background: linear-gradient(135deg, #c45a7a, #a63a5a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .memories-sub {
+            font-size: 1rem;
+            color: #5c3f4b;
+            background: #fceae3;
+            display: inline-block;
+            padding: 0.25rem 1.6rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            border: 1px solid #ebccbc;
+            font-weight: 600;
+        }
+
+        /* ===== GOOGLE DRIVE CARD ===== */
+        .drive-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 1.6rem 1.2rem;
+            margin: 1rem 0 1.4rem;
+            border: 2px dashed #dadce0;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .drive-card:hover {
+            border-color: #c45a7a;
+            background: #fdf3f0;
+            transform: scale(1.01);
+        }
+        .drive-card:active {
+            transform: scale(0.97);
+        }
+        .drive-icon {
+            font-size: 3.6rem;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+        .drive-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #202124;
+        }
+        .drive-sub {
+            font-size: 0.9rem;
+            color: #5f6368;
+            margin-top: 0.2rem;
+        }
+        .drive-arrow {
+            font-size: 1.8rem;
+            margin-top: 0.4rem;
+            color: #c45a7a;
+        }
+
+        /* ===== MEMORIES PREVIEW (DECORATIVE) ===== */
+        .memory-preview {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0.8rem 0 0.4rem;
+        }
+        .memory-preview span {
+            font-size: 2.4rem;
+            background: #fceae3;
+            padding: 6px 12px;
+            border-radius: 16px;
+            border: 2px solid #f5ded2;
+            transition: 0.15s;
+        }
+        .memory-preview span:hover {
+            transform: scale(1.08);
+            border-color: #c45a7a;
+        }
+
+        /* ===== HEARTFELT MESSAGE ===== */
+        .heartfelt-message {
+            background: linear-gradient(135deg, #fdf3f0, #fce8e0);
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            margin: 1.2rem 0 1rem;
+            border: 2px solid #f5d6c8;
+            box-shadow: 0 4px 12px rgba(196, 90, 122, 0.08);
+            text-align: left;
+            position: relative;
+        }
+        .heartfelt-message::before {
+            content: "💌";
+            position: absolute;
+            top: -14px;
+            right: 16px;
+            font-size: 2rem;
+            background: #ffffff;
+            padding: 0 8px;
+            border-radius: 20px;
+        }
+        .heartfelt-message .msg-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #c45a7a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            text-align: center;
+        }
+        .heartfelt-message .msg-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #3a2a32;
+            font-weight: 500;
+            white-space: pre-line;
+            text-align: center;
+        }
+        .heartfelt-message .msg-text .highlight {
+            color: #c45a7a;
+            font-weight: 700;
+        }
+        .heartfelt-message .msg-sign {
+            text-align: right;
+            font-weight: 700;
+            color: #5c3f4b;
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        .heartfelt-message .msg-emoji {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-note {
+            margin-top: 1.4rem;
+            font-size: 0.8rem;
+            color: #8a7a82;
+            border-top: 1px solid #f0e0d6;
+            padding-top: 1rem;
+            letter-spacing: 0.3px;
+        }
+        .footer-note span {
+            font-weight: 600;
+            color: #c45a7a;
+        }
+
+        /* ===== GOOGLE SEARCH BAR STYLE ===== */
+        .search-mock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #f1f3f4;
+            border-radius: 60px;
+            padding: 6px 16px 6px 20px;
+            margin: 0.6rem auto 0.8rem;
+            max-width: 280px;
+            border: 1px solid #e8eaed;
+        }
+        .search-mock .mic {
+            font-size: 1.2rem;
+            color: #4285F4;
+        }
+        .search-mock .search-text {
+            font-size: 0.9rem;
+            color: #5f6368;
+            flex: 1;
+            text-align: left;
+            font-weight: 500;
+        }
+        .search-mock .search-icon {
+            font-size: 1.2rem;
+            color: #9aa0a6;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .google-card {
+                padding: 1.4rem 1rem 1.8rem;
+                border-radius: 24px;
+            }
+            .google-logo {
+                font-size: 1.8rem;
+            }
+            .memories-title {
+                font-size: 1.5rem;
+            }
+            .drive-icon {
+                font-size: 2.8rem;
+            }
+            .deco-row {
+                font-size: 1.6rem;
+                gap: 8px;
+            }
+            .memory-preview span {
+                font-size: 1.8rem;
+                padding: 4px 10px;
+            }
+            body::before {
+                font-size: 1.6rem;
+                letter-spacing: 0.6rem;
+                word-spacing: 1rem;
+            }
+            body::after {
+                font-size: 1.2rem;
+                letter-spacing: 1.6rem;
+            }
+            .heartfelt-message {
+                padding: 1rem 0.8rem;
+            }
+            .heartfelt-message .msg-text {
+                font-size: 0.85rem;
+                line-height: 1.7;
+            }
+            .heartfelt-message::before {
+                font-size: 1.6rem;
+                top: -12px;
+                right: 12px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .google-card {
+                padding: 1rem 0.8rem 1.4rem;
+            }
+            .google-logo {
+                font-size: 1.5rem;
+            }
+            .memories-title {
+                font-size: 1.3rem;
+            }
+            .drive-label {
+                font-size: 1rem;
+            }
+            .heartfelt-message .msg-text {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Touch friendly */
+        .drive-card,
+        .memory-preview span {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="google-card">
+
+        <!-- ===== GOOGLE LOGO ===== -->
+        <div class="google-logo">
+            <span class="g">G</span>
+            <span class="o1">o</span>
+            <span class="o2">o</span>
+            <span class="l">g</span>
+            <span class="l" style="color:#34A853;">l</span>
+            <span class="e">e</span>
+            <span class="dot">.</span>
+        </div>
+
+        <!-- ===== DECORATIONS ===== -->
+        <div class="deco-row">
+            <span>🎈</span>
+            <span>🎉</span>
+            <span>🎊</span>
+            <span>🎂</span>
+            <span>🎁</span>
+            <span>✨</span>
+        </div>
+
+        <!-- ===== TITLE ===== -->
+        <div class="memories-title">📸 Our Memories</div>
+        <div class="memories-sub">✨ Aleesha · ONLY MINE's(Bilal) ✨</div>
+
+        <!-- ===== GOOGLE SEARCH BAR MOCK ===== -->
+        <div class="search-mock">
+            <span class="search-icon">🔍</span>
+            <span class="search-text">Search memories...</span>
+            <span class="mic">🎤</span>
+        </div>
+
+        <!-- ===== MEMORIES PREVIEW ===== -->
+        <div class="memory-preview">
+            <span>📷</span>
+            <span>🎬</span>
+            <span>💕</span>
+            <span>🌅</span>
+            <span>🌸</span>
+        </div>
+
+        <!-- ===== GOOGLE DRIVE CARD ===== -->
+        <a href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID" target="_blank" style="text-decoration: none; display: block;">
+            <div class="drive-card">
+                <span class="drive-icon">📁</span>
+                <div class="drive-label">📂 Google Drive</div>
+                <div class="drive-sub">Tap to view all memories</div>
+                <div class="drive-arrow">👇</div>
+            </div>
+        </a>
+
+        <!-- ===== HEARTFELT MESSAGE ===== -->
+        <div class="heartfelt-message">
+            <div class="msg-title">💌 A Note From The Heart</div>
+            <div class="msg-text">
+                If you like it, please contact me. I know I've made mistakes, but if you consider 
+                me worthy of forgiveness, then please forgive me. I promise you, I would fight against 
+                the whole world for you, and I will keep fighting. But your anger is killing me day by day.
+                For the sake of your special day, I deserve at least one forgiveness. The purpose of making
+                this web was to show you the effort that used to be the reason for our fights.
+                Anyway, I'm not even worthy of saying sorry.
+            </div>
+            <div class="msg-emoji">💖 🌹 🕊️</div>
+            <div class="msg-sign">— Always yours</div>
+        </div>
+
+        <!-- ===== DECORATION ROW 2 ===== -->
+        <div class="deco-row" style="margin-top: 0.4rem; font-size: 1.6rem;">
+            <span>💖</span>
+            <span>🌟</span>
+            <span>🌈</span>
+            <span>🎀</span>
+            <span>🧁</span>
+            <span>🍰</span>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer-note">
+            🎂 Made with love for <span>Aleesha</span> · Every moment is a memory 💕
+        </div>
+
+    </div>
+
+    <script>
+        // ===== DRIVE LINK CHANGE KAREIN =====
+        // Neeche di gayi link mein apna Google Drive folder ID lagaayein:
+        const driveLink = "https://drive.google.com/drive/folders/YOUR_FOLDER_ID";
+
+        console.log("📸 Memories page loaded! ❤️ Aleesha");
+        console.log("💌 Message from the heart included.");
+    </script>
+
+</body>
+</html>
